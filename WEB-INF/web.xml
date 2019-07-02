@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+   <listener>
+      <listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
+   </listener>
+   <servlet>
+      <servlet-name>QuartzInitializer</servlet-name>
+      <servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
+      <init-param>
+         <param-name>shutdown-on-unload</param-name>
+         <param-value>true</param-value>
+      </init-param>
+      <init-param>
+         <param-name>wait-on-shutdown</param-name>
+         <param-value>true</param-value>
+      </init-param>
+      <init-param>
+         <param-name>start-scheduler-on-load</param-name>
+         <param-value>true</param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>ActionControlServlet</servlet-name>
+      <servlet-class>base.ActionControlServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>ActionControlServlet</servlet-name>
+      <url-pattern>/ActionControlServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>ActionControlServletApp</servlet-name>
+      <servlet-class>base.ActionControlServletApp</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>ActionControlServletApp</servlet-name>
+      <url-pattern>/ActionControlServletApp</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>ServletApp</servlet-name>
+      <servlet-class>wap119.android.ServletApp</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>ServletApp</servlet-name>
+      <url-pattern>/ServletApp</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>user</servlet-name>
+      <servlet-class>base.SingleSignOnServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>user</servlet-name>
+      <url-pattern>/user</url-pattern>
+   </servlet-mapping>
+   <!-- 帳號申請使用 -->
+   <servlet>
+      <servlet-name>AccountServlet</servlet-name>
+      <servlet-class>base.AccountServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>AccountServlet</servlet-name>
+      <url-pattern>/AccountServlet</url-pattern>
+   </servlet-mapping>
+   <!-- test -->
+   <servlet>
+      <servlet-name>test</servlet-name>
+      <servlet-class>base.TestModeServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>test</servlet-name>
+      <url-pattern>/test</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DisasterService</servlet-name>
+      <description>提供受理席呼叫將需上傳災情站資料寫入DIS_CASE_DAMAGE</description>
+      <servlet-class>service.http.DisasterService</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DisasterService</servlet-name>
+      <url-pattern>/DisasterService</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>GcaMservice</servlet-name>
+      <description>提供簡訊發送</description>
+      <servlet-class>service.http.GcaMservice</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>GcaMservice</servlet-name>
+      <url-pattern>/GcaMservice</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>CaseQuery</servlet-name>
+      <description>彰化查詢案件</description>
+      <servlet-class>base.CaseQuery</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CaseQuery</servlet-name>
+      <url-pattern>/CaseQuery</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>login119</servlet-name>
+      <servlet-class>base.LoginServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>login119</servlet-name>
+      <url-pattern>/login119</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>LogService</servlet-name>
+      <description>紀錄調閱錄音資料的使用者資訊</description>
+      <servlet-class>service.http.LogService</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>LogService</servlet-name>
+      <url-pattern>/LogService</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DohClientServlet</servlet-name>
+      <description>接收消防署通知取回衛生署提供資料之服務介面</description>
+      <servlet-class>com.mds.nfa119.doh.DohClientServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DohClientServlet</servlet-name>
+      <url-pattern>/servlet/DohClientServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>dwr-invoker</servlet-name>
+      <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+      <init-param>
+         <description />
+         <param-name>debug</param-name>
+         <param-value>true</param-value>
+      </init-param>
+      <init-param>
+         <param-name>config</param-name>
+         <param-value>/WEB-INF/conf/dwr.xml</param-value>
+      </init-param>
+   </servlet>
+
+   <servlet>
+      <description>This is the description of my J2EE component</description>
+      <display-name>This is the display name of my J2EE component</display-name>
+      <servlet-name>GPSReceiver</servlet-name>
+      <servlet-class>service.gps.GPSReceiver</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>GPSReceiver</servlet-name>
+      <url-pattern>/GPSReceiver</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>dwr-invoker</servlet-name>
+      <url-pattern>/js/dwr/base/*</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>http 檔案上傳服務</description>
+      <servlet-name>HttpFileServiceFace</servlet-name>
+      <servlet-class>com.mds.nfa119.UPDService.HttpFileServiceFace</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>HttpFileServiceFace</servlet-name>
+      <url-pattern>/UPDService/HttpFileServiceFace</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>watch</servlet-name>
+      <display-name>watch</display-name>
+      <description>檔案管理平台的http檔案提供服務(119專用)</description>
+      <servlet-class>com.mds.nfa119.UPDService.watch</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>watch</servlet-name>
+      <url-pattern>/UPDService/watch</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>QueryDisCaseServlet</servlet-name>
+      <servlet-class>service.http.QueryDisCaseAcc</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>QueryDisCaseServlet</servlet-name>
+      <url-pattern>/QueryDisCaseServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>login</servlet-name>
+      <servlet-class>login.HTTPLoginService</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>login</servlet-name>
+      <url-pattern>/login</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>getse</servlet-name>
+      <servlet-class>login.ReturnServiceIP</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>getse</servlet-name>
+      <url-pattern>/getse</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>nfa119_Daily119</servlet-name>
+      <servlet-class>service.http.nfa119_Daily119</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>nfa119_Daily119</servlet-name>
+      <url-pattern>/nfa119_Daily119</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>nfa119_New119ToEOC</servlet-name>
+      <servlet-class>service.http.nfa119_New119ToEOC</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>nfa119_New119ToEOC</servlet-name>
+      <url-pattern>/nfa119_New119ToEOC</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>logincenter</servlet-name>
+      <servlet-class>login.CenterHTTPLoginService</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>logincenter</servlet-name>
+      <url-pattern>/logincenter</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DIToEOC</servlet-name>
+      <servlet-class>service.http.DIToEOC</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DIToEOC</servlet-name>
+      <url-pattern>/DIToEOC</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>災情站資料服務</description>
+      <servlet-name>DisasterSendService</servlet-name>
+      <servlet-class>service.http.DisasterSendService</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DisasterSendService</servlet-name>
+      <url-pattern>/DisasterSendService</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>緊急救護雲端急診室介接資訊</description>
+      <servlet-name>EmergencySendService</servlet-name>
+      <servlet-class>service.http.EmergencySendService</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>EmergencySendService</servlet-name>
+      <url-pattern>/EmergencySendService</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>TransTo119Service</servlet-name>
+      <description>119接收110案件資訊</description>
+      <servlet-class>service.http.Trans110To119Service</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>TransTo119Service</servlet-name>
+      <url-pattern>/TransTo119Service</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>Get110InfoService</servlet-name>
+      <description>119接收110案件資訊</description>
+      <servlet-class>service.http.Trans110To119Service</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>Get110InfoService</servlet-name>
+      <url-pattern>/Get110InfoService</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>TransTo110Service</servlet-name>
+      <description>119傳送案件資訊到110</description>
+      <servlet-class>service.http.Trans119To110Service</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>TransTo110Service</servlet-name>
+      <url-pattern>/TransTo110Service</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>TransTo110ServiceInfo</servlet-name>
+      <description>119回覆110案件承辦人員</description>
+      <servlet-class>service.http.Trans119To110Service</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>TransTo110ServiceInfo</servlet-name>
+      <url-pattern>/TransTo110ServiceInfo</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>TransferService</servlet-name>
+      <description>築夢園資料介接</description>
+      <servlet-class>service.http.TransferService</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>TransferService</servlet-name>
+      <url-pattern>/TransferService</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>SingleSignOn2119</servlet-name>
+      <description>桃園SSO介接服務</description>
+      <servlet-class>service.http.SingleSignOn2119</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>SingleSignOn2119</servlet-name>
+      <url-pattern>/SingleSignOn2119</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>SingleSignOn2EMPL</servlet-name>
+      <description>桃園SSO人員固定更新服務</description>
+      <servlet-class>service.http.SingleSignOn2EMPL</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>SingleSignOn2EMPL</servlet-name>
+      <url-pattern>/SingleSignOn2EMPL</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>SingleSignOn2DEPT</servlet-name>
+      <description>桃園SSO單位固定更新服務</description>
+      <servlet-class>service.http.SingleSignOn2DEPT</servlet-class>
+      <load-on-startup>1</load-on-startup>
+      <init-param>
+         <description>更新時間設定-時</description>
+         <param-name>hh</param-name>
+         <param-value>14</param-value>
+      </init-param>
+      <init-param>
+         <description>更新時間設定-分</description>
+         <param-name>mm</param-name>
+         <param-value>15</param-value>
+      </init-param>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>SingleSignOn2DEPT</servlet-name>
+      <url-pattern>/SingleSignOn2DEPT</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>桃園道路挖掘資料取得</description>
+      <display-name>JsonForRoadDigging</display-name>
+      <servlet-name>JsonForRoadDigging</servlet-name>
+      <servlet-class>service.http.JsonForRoadDigging</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>JsonForRoadDigging</servlet-name>
+      <url-pattern>/JsonForRoadDigging</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>桃園道路挖掘資料另存</description>
+      <display-name>RoadDiggingByReadHtml</display-name>
+      <servlet-name>RoadDiggingByReadHtml</servlet-name>
+      <servlet-class>service.http.RoadDiggingByReadHtml</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>RoadDiggingByReadHtml</servlet-name>
+      <url-pattern>/RoadDiggingByReadHtml</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_Case_Kind_Rec</servlet-name>
+      <description>署端案類時段By月份的資料交換接收</description>
+      <servlet-class>service.http.DT_Case_Kind_Rec</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_Case_Kind_Rec</servlet-name>
+      <url-pattern>/DT_Case_Kind_Rec</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCA01</servlet-name>
+      <description>縣市端場所資料交換</description>
+      <servlet-class>service.http.DTS070101</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCA01</servlet-name>
+      <url-pattern>/DT_SCA01</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCA05</servlet-name>
+      <description>場所建物關聯檔</description>
+      <servlet-class>service.http.DTS070105</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCA05</servlet-name>
+      <url-pattern>/DT_SCA05</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCA11</servlet-name>
+      <description>公共危險物品種類</description>
+      <servlet-class>service.http.DTS070111</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCA11</servlet-name>
+      <url-pattern>/DT_SCA11</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCA12</servlet-name>
+      <description>可燃性高壓氣體種類及數量</description>
+      <servlet-class>service.http.DTS070112</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCA12</servlet-name>
+      <url-pattern>/DT_SCA12</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>貯存證件資訊</description>
+      <servlet-name>JsonForMonuments</servlet-name>
+      <servlet-class>service.http.JsonForMonuments</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>JsonForMonuments</servlet-name>
+      <url-pattern>/JsonForMonuments</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCA14</servlet-name>
+      <description>防火管理相關附檔(如防護計畫)</description>
+      <servlet-class>service.http.DTS070114</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCA14</servlet-name>
+      <url-pattern>/DT_SCA14</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCA15</servlet-name>
+      <description>各種上傳計畫資料</description>
+      <servlet-class>service.http.DTS070115</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCA15</servlet-name>
+      <url-pattern>/DT_SCA15</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCA16</servlet-name>
+      <description>甲乙種圖來源</description>
+      <servlet-class>service.http.DTS070116</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCA16</servlet-name>
+      <url-pattern>/DT_SCA16</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_INM027FH</servlet-name>
+      <description>建物會審勘資料</description>
+      <servlet-class>service.http.DTS070127</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_INM027FH</servlet-name>
+      <url-pattern>/DT_INM027FH</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>DT_SCD88</servlet-name>
+      <description>建築物資料</description>
+      <servlet-class>service.http.DTS070188</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>DT_SCD88</servlet-name>
+      <url-pattern>/DT_SCD88</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <servlet-name>HydratFromFireDep</servlet-name>
+      <description>各縣市水源資料交換</description>
+      <servlet-class>service.http.HydratFromFireDep</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>HydratFromFireDep</servlet-name>
+      <url-pattern>/HydratFromFireDep</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>地址資料解析服務</description>
+      <display-name>CareGroup_Trans_ForADDRESS</display-name>
+      <servlet-name>CareGroup_Trans_ForADDRESS</servlet-name>
+      <servlet-class>service.http.CareGroup_Trans_ForADDRESS</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CareGroup_Trans_ForADDRESS</servlet-name>
+      <url-pattern>/CareGroup_Trans_ForADDRESS</url-pattern>
+   </servlet-mapping>
+   <listener>
+      <listener-class>base.MdsServletContextListener</listener-class>
+   </listener>
+   <servlet>
+      <description>IOC資料交換服務</description>
+      <display-name>IOCServlet</display-name>
+      <servlet-name>IOCServlet</servlet-name>
+      <servlet-class>service.http.IOCServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>IOCServlet</servlet-name>
+      <url-pattern>/IOCServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>弱勢團體-資料下載服務</description>
+      <servlet-name>Disabled</servlet-name>
+      <servlet-class>service.http.Disabled</servlet-class>
+      <init-param>
+         <param-name>CID-Mapping</param-name>
+         <!-- param-value>0</param-value -->
+         <!-- param-value>0900700000,連江縣</param-value -->
+         <!-- param-value>0902000000,金門縣</param-value -->
+         <!-- param-value>1000200000,宜蘭縣</param-value -->
+         <!-- param-value>1000400000,新竹縣</param-value -->
+         <!-- param-value>1000500000,苗栗縣</param-value -->
+         <!-- param-value>1000700000,彰化縣</param-value -->
+         <!-- param-value>1000800000,南投縣</param-value -->
+         <!-- param-value>1000900000,雲林縣</param-value -->
+         <!-- param-value>1001000000,嘉義縣</param-value -->
+         <!-- param-value>1001300000,屏東縣</param-value -->
+         <!-- param-value>1001400000,臺東縣</param-value -->
+         <!-- param-value>1001500000,花蓮縣</param-value -->
+         <!-- param-value>1001600000,澎湖縣</param-value -->
+         <!-- param-value>1001700000,基隆市</param-value -->
+         <!-- param-value>1001800000,新竹市</param-value -->
+         <!-- param-value>1002000000,嘉義市</param-value -->
+         <!-- param-value>6300000000,臺北市</param-value -->
+         <param-value>6400000000,高雄市</param-value>
+         <!-- param-value>6500000000,新北市</param-value -->
+         <!-- param-value>6600000000,臺中市</param-value -->
+         <!-- param-value>6700000000,臺南市</param-value -->
+         <!-- param-value>6800000000,桃園市</param-value -->
+      </init-param>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>Disabled</servlet-name>
+      <url-pattern>/Disabled</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>文資局古蹟-資料下載服務</description>
+      <servlet-name>Monuments</servlet-name>
+      <servlet-class>service.http.Monuments</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>Monuments</servlet-name>
+      <url-pattern>/Monuments</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+      <description>AED-資料下載服務</description>
+      <servlet-name>AED</servlet-name>
+      <servlet-class>service.http.AED</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>AED</servlet-name>
+      <url-pattern>/AED</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+      <description>防災基本資料</description>
+      <servlet-name>DisasterBasic</servlet-name>
+      <servlet-class>service.http.DisasterBasic</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterBasic</servlet-name>
+      <url-pattern>/DisasterBasic</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <description>其他化學品</description>
+      <servlet-name>DisasterChemicals</servlet-name>
+      <servlet-class>service.http.DisasterChemicals</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterChemicals</servlet-name>
+      <url-pattern>/DisasterChemicals</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <description>檔案</description>
+      <servlet-name>DisasterFile</servlet-name>
+      <servlet-class>service.http.DisasterFile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterFile</servlet-name>
+      <url-pattern>/DisasterFile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <description>緊急應變器材</description>
+      <servlet-name>DisasterFire</servlet-name>
+      <servlet-class>service.http.DisasterFire</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterFire</servlet-name>
+      <url-pattern>/DisasterFire</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <description>緊急醫療網</description>
+      <servlet-name>DisasterHospital</servlet-name>
+      <servlet-class>service.http.DisasterHospital</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterHospital</servlet-name>
+      <url-pattern>/DisasterHospital</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <description>災害防護實際負責人</description>
+      <servlet-name>DisasterPeople</servlet-name>
+      <servlet-class>service.http.DisasterPeople</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterPeople</servlet-name>
+      <url-pattern>/DisasterPeople</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <description>外部支援廠商</description>
+      <servlet-name>DisasterSupport</servlet-name>
+      <servlet-class>service.http.DisasterSupport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterSupport</servlet-name>
+      <url-pattern>/DisasterSupport</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <description>毒化物</description>
+      <servlet-name>DisasterToxic</servlet-name>
+      <servlet-class>service.http.DisasterToxic</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterToxic</servlet-name>
+      <url-pattern>/DisasterToxic</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <description>座標</description>
+      <servlet-name>DisasterXY</servlet-name>
+      <servlet-class>service.http.DisasterXY</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>DisasterXY</servlet-name>
+      <url-pattern>/DisasterXY</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <description>貯存證件資訊</description>
+      <servlet-name>StoreData</servlet-name>
+      <servlet-class>service.http.StoreData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>StoreData</servlet-name>
+      <url-pattern>/StoreData</url-pattern>
+    </servlet-mapping>
+
+   <!-- listener>
+		  <listener-class>service.http.timerD</listener-class>
+	 </listener -->
+
+   <!-- 平台使用參數 -->
+   <context-param>
+      <param-name>Config-Path</param-name>
+      <param-value>/WEB-INF/conf</param-value>
+   </context-param>
+   <context-param>
+      <!-- 框架的上方標題頁路徑(建議彈出視窗的系統使用) -->
+      <param-name>Banner-Path</param-name>
+      <param-value>jsp/page/banner.jsp</param-value>
+   </context-param>
+   <context-param>
+      <!-- 從測試用小入口登入後,主畫面預設顯示的頁面(就是login.jsp的nextAPname值)-->
+      <param-name>Main-Page</param-name>
+      <param-value>samples.HOME</param-value>
+   </context-param>
+
+   <session-config>
+      <session-timeout>120</session-timeout>
+   </session-config>
+
+   <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file>
+      <welcome-file>index.html</welcome-file>
+      <welcome-file>index.htm</welcome-file>
+   </welcome-file-list>
+
+   <mime-mapping>
+      <extension>doc</extension>
+      <mime-type>application/msword</mime-type>
+   </mime-mapping>
+   <mime-mapping>
+      <extension>xls</extension>
+      <mime-type>application/msexcel</mime-type>
+   </mime-mapping>
+
+</web-app>

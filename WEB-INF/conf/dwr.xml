@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "http://directwebremoting.org/schema/dwr20.dtd">
+<dwr>
+
+	<allow>
+		<!-- 定?异常，?然java.lang.StackTraceElement要先定?否?可能是异常堆?找不到吧所以?法dwr?法?? -->
+		<convert converter="bean" match="java.lang.StackTraceElement"/>
+		<convert converter="bean" match="java.lang.NullPointerException"/>
+		<convert converter="bean" match="service.dwr.exception.SystemException"/>
+		<!--定義JAVA BEAN - 下拉選單物件 Converter：??是???化，通常，如果是基本?型，就不用在?里?明-->
+		<!--但是如果是自定?的?型，就需要使用到它了 -->
+		<convert converter="bean" match="service.dwr.bean.Option"/>
+		<!--定義JAVA CLASS - 地址 它的?性中，creator，代表java?象?建?用什么方法??建，默?下是new，?然如果???的域如果是“session”或更大，又或者方法是??的，?里就需要用none -->
+		<!-- javascript:，通俗的?就是在js中用什么??用java方法，在文件中要有"javascriptName".js的?明  -->
+		<!-- scope，也就是域了  -->
+		<create creator="new" javascript="Address">
+			<param name="class" value="service.dwr.Address" />
+		</create>
+		<create creator="new" javascript="Deptno">
+			<param name="class" value="service.dwr.Deptno" />
+		</create>
+		<create creator="new" javascript="DisBaleNo">
+			<param name="class" value="service.dwr.Dis_BaleNo" />
+		</create>
+		<create creator="new" javascript="DisCode">
+			<param name="class" value="service.dwr.DisCode" />
+		</create>
+		<create creator="new" javascript="DisCodeAll">
+			<param name="class" value="service.dwr.DisCodeAll" />
+		</create>
+		<create creator="new" javascript="Car">
+			<param name="class" value="service.dwr.Car" />
+		</create>
+		<create creator="new" javascript="ViliDeptno">
+			<param name="class" value="service.dwr.ViliDeptno" />
+		</create>
+		<create creator="new" javascript="Hosp">
+			<param name="class" value="service.dwr.Hosp" />
+		</create>
+	</allow>
+
+</dwr>

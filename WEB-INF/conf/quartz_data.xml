@@ -1,0 +1,18 @@
+﻿<job-scheduling-data version="1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData" xsi:schemalocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_1_8.xsd">
+   
+   <schedule>
+        <job>
+            <name>Job1</name>
+            <job-class>service.TaskJobs.Job1</job-class>
+        </job>
+        <trigger>
+            <cron>
+                <name>Job1</name>
+				<group>default</group>
+                <job-name>Job1</job-name>
+                <cron-expression>0/5 * * * * ?</cron-expression>
+            </cron>
+        </trigger>
+    </schedule>
+ 
+</job-scheduling-data>
