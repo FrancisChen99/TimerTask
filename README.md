@@ -5,13 +5,10 @@ The main purpose makes FireFighters get the lastest information to understand th
 
 # Skill
 <pre><code>
-  Languages:  Java, JavaScript, JSP, SQL
-  API:        Restful API , JPA annotation
-  Framwork:   Spring Boot
-  POM:        Mavin 
+  Languages:  Java, SQL
   Web Server: Apache Tomcat 7/8/9
   Database:   Oracle 10g (application.properties for db connection setting)
-  Tool:       Eclipse, Spring Boot Suite 4, SQL Developer, Postman, Subversion
+  Tool:       Eclipse, SQL Developer, Postman, Subversion
   schedular:  Quartz
   OS:         Windows 10, Linux (Remote Server)
 </code></pre>
