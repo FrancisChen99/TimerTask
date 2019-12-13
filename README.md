@@ -1,6 +1,6 @@
 # TimerTask Project Description 
 <p>
-The main purpose makes FireFighters get the lastest information to understand the accident surrounding on the Map and help them make the better decision for saving lives. This project is made on Web application service to download the JSON files via SFTP(HTTPS) and make the the exe schedule by quartz scheduler. 
+The main purpose makes FireFighters get the lastest information to understand the accident surrounding on the Map and help them make the better decision for saving lives. This project is made Java Web-base application for downloading the JSON files via SFTP(HTTPS), processing data cleaning and ETL in the back-end programs and setting the scheduler by quartz. 
 </p>
 
 # Skill
