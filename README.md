@@ -7,8 +7,8 @@ The main purpose makes FireFighters get the lastest information to understand th
 <pre><code>
   Languages:  Java, JDBC, SQL
   Web Server: Apache Tomcat 7/8/9
-  Database:   Oracle 10g 
+  Database:   Oracle 10g (config/platform.ini 設定Database connection, source urls)
   Tool:       Eclipse, SQL Developer, Postman, Subversion
-  schedular:  Quartz
+  schedular:  Quartz (config/quartz.properties)
   OS:         Windows 10, Linux (Remote Server)
 </code></pre>
