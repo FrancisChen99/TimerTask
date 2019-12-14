@@ -5,9 +5,9 @@ The main purpose makes FireFighters get the lastest information to understand th
 
 # Skill
 <pre><code>
-  Languages:  Java, SQL
+  Languages:  Java, JDBC, SQL
   Web Server: Apache Tomcat 7/8/9
-  Database:   Oracle 10g (application.properties for db connection setting)
+  Database:   Oracle 10g 
   Tool:       Eclipse, SQL Developer, Postman, Subversion
   schedular:  Quartz
   OS:         Windows 10, Linux (Remote Server)
